@@ -1,0 +1,283 @@
+/* ---------------- */
+/* Variables */
+/* --------------- */
+:root {
+  --main-color: #fc575e;
+  --light-color: #f0f1f5;
+  --dark-color: #333;
+  --main-grey: #555;
+}
+
+/* ---------------- */
+/* Resets (a way to standardise properties accross browsers)
+like a starting point*/
+/* --------------- */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvitica, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ---------------- */
+/* Globals*/
+/* --------------- */
+body {
+  background-color: var(--light-color);
+}
+
+/* get rid of underline or any decoration on a tags for links */
+a {
+  text-decoration: none;
+
+}
+
+/* set curser to pointer when over links ie a tag */
+a: hover {
+  cursor: pointer;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* hidden class to hide items ie. panel */
+.hidden{
+  display: none;
+}
+
+.panelHeading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--main-grey);
+}
+
+.full-screen-opaque{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 5;
+
+}
+
+
+/* ---------------- */
+/* NavBar*/
+/* --------------- */
+#nav {
+  height: 60px;
+  background-color: var(--dark-color);
+}
+
+#navContainer {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-header {
+  color: var(--light-color);
+  font-size: 28px;
+  transition: all 0.45s 0s;
+}
+
+.nav-header:hover {
+  color: var(--main-color);
+	letter-spacing: 2px;
+	transform: scale(1.2);
+  cursor: pointer;
+}
+
+#addButton {
+  color: var(--light-color);
+  transition: transform 0.45s 0s;
+}
+
+#addButton:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* ---------------- */
+/* Panel*/
+/* --------------- */
+.panel {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px var(--main-grey);
+  padding: 2rem 1rem 1rem 1rem;
+  margin: 10px;
+
+}
+
+
+/* ---------------- */
+/* form*/
+/* --------------- */
+.form-control {
+  width: 100%;
+  height: 100%;
+  padding: .2rem .1rem;
+  margin: .3rem 0rem;
+  border-radius: .1rem;
+  font-size: 1rem;
+  color: var(--main-grey);
+}
+
+#addLinkContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#addLinkContainer.hidden{
+  display: none;
+}
+
+
+#linkPanel{
+  animation: slider-down 1s 0s ease-in
+}
+/* ---------------- */
+/* buttons */
+/* --------------- */
+
+.link-button {
+  padding: .5rem, 2rem;
+  border-radius: .2rem;
+  font-size: 1rem;
+  border: .1rem solid var(--main-color);
+  background-color: var(--main-color);
+  color: var(--light-color);
+  margin-top: .5rem;
+  margin-right: .3rem;
+}
+
+/* set hover on input buttons to reverse olors and curer to pointer */
+.link-button:hover {
+  cursor: pointer;
+  color: var(--main-color);
+  background-color: var(--light-color);
+  border: .1rem solid var(--light-color);
+}
+
+
+/* ---------------- */
+/* links */
+/* --------------- */
+
+/* set link position to relative so we can absolotueley
+   position buttons within this */
+
+.link{
+  position: relative;
+}
+
+.linkButtons{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+}
+
+.linkDate{
+  font-style: italic;
+}
+
+.linkCategories{
+  font-weight: bold;
+}
+
+.category{
+  border: .1rem solid var(--main-color);
+  border-radius: 5px;
+  background-color: var(--main-color);
+  color: var(--light-color);
+  margin-right: 5px;
+  font-size: 12px;
+  padding: inherit;
+
+}
+
+.sm-but{
+  font-size: 12px;
+}
+
+/* set linkList to flex and wrap around */
+#linkList{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+/* set links to take up available space */
+.link-item{
+  flex-basis: 100%;
+}
+
+.linkCategories{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+/* ---------------- */
+/* Media Queries for screen size */
+/* --------------- */
+@media only screen and (min-width: 786px){
+  	.flex-item {
+  		flex-basis: 50%;
+
+    }
+
+
+	}
+
+  @media only screen and (max-width: 786px){
+      #nav {
+  		height: 100px;
+    	}
+    	#navContainer {
+    		flex-direction: column;
+    		justify-content: center;
+    	}
+      #linkList{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+  	}
+
+@media only screen and (max-width: 1280px){
+	.flex-item {
+		flex-basis: 33%;
+	}
+}
+
+
+
+/* ---------------- */
+/* Slider*/
+/* --------------- */
+@keyframes slider-down {
+/* set to off the screen at biginning */
+0% {
+  transform: translateY(-1000px);
+}
+/* set at 25 at 90% then -10 at 95% small bounce effect */
+90%{
+  transform: translateY(25px);
+}
+95%{
+  transform: translateY(-10px);
+}
+/* finaly at 100% set to 0 */
+100% {
+transform: translateY(0px);
+}

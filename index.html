@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/e6cb349d6e.js" crossorigin="anonymous"></script>
+  
+  <link rel="stylesheet" href="./assets/app.css">
+  <title>Rescource Organiser</title>
+</head>
+<body>
+
+  <!-- build out nav bar -->
+   <nav id="nav">
+      <div class="container" id="navContainer">
+          <h1 class="nav-header">ResOrg</h1>
+          <a id="addButton">New Link      <i class="fas fa-plus fa-2x"></i></a>
+
+      </div>
+  </nav>
+
+  <!-- container element all main content of app -->
+  <div class="container">
+    <!-- panel for adding links has 2 classes panel anh ideen to hide by
+         default until addbutton is presses-->
+    <div id="addLinkContainer" class="full-screen-opaque hidden ">
+        <div class="panel slidedown" id="linkPanel" >
+            <h1 class="panelHeading" id="addLinkHeading">Add Link</h1>
+
+            <form class="addLinkForm">
+
+                <input type="text" name="title" id="linkTitle" class="form-control" placeholder="Title">
+
+                <input type="text" name="url" id="linkUrl" class="form-control" placeholder="URL">
+
+                <input type="text" name="category" id="linkCategory" class="form-control" placeholder="Categories (comma separated)">
+
+                <div id="addedCategory">
+
+                </div>
+
+                <input type="submit" class="link-button" id="submitButton" value="Submit">
+
+                <input type="submit" class="link-button" id="cancelButton" value="Cancel">
+
+
+            </form>
+        </div>
+
+    </div>
+    <!-- add alist to hold any added links -->
+    <div id="linkList">
+
+
+    </div>
+  </div>
+  <script src="./assets/app.js" ></script>
+</body>
+
+</html>
